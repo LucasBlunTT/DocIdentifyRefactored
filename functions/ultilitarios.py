@@ -1,9 +1,6 @@
 import cv2
-import pytesseract
 import re
-
-# Definir o caminho para o executável do Tesseract OCR
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+import pytesseract
 
 def mostrar_imagem(imagem, titulo='Minha Imagem'):
     # Função para redimensionar e mostrar uma imagem em uma janela
@@ -41,12 +38,11 @@ def filtrar_data_cpf(texto):
 
 def extrair_nome(texto):
     # Utilizar expressão regular para buscar padrão de nome
-    padrao_nome = r'\|\s*([A-Z\s]+)\s*\|'
-    match = re.search(padrao_nome, texto)
+    padrao_nome = r'[A-Z\s]+'
+    match = re.findall(padrao_nome, texto)
 
-    if match:
-        nome_completo = match.group(1)
-        return nome_completo.strip()
+    for nome in match:
+        print(nome.strip())
 
 def extrair_dados_documento(imagem):
     # Carregar a imagem do documento
@@ -73,17 +69,8 @@ def extrair_dados_documento(imagem):
     nome = extrair_nome(texto_extraido)
 
     return {
-        'nome': nome,
+        'nome': nome if (nome is not None and len(nome) > 2) else '',
         'cpf': cpf_cliente,
         'nascimento': datas[0] if dt_venc == None else 'Carteira sem Data de Nascimento',
         'dtVencimentoCnh': datas[1] if dt_venc == None else dt_venc
     }
-
-#path do caminho da imagem
-imagem_path = ".//images//cnh.jpg"
-#imagem_path = ".//images//cnh3.jpeg"
-
-# Chamar a função para processar a imagem do documento
-dados_documento = extrair_dados_documento(imagem_path)
-
-print(dados_documento)
