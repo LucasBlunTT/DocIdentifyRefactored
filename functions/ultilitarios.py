@@ -36,14 +36,6 @@ def filtrar_data_cpf(texto):
 
     return datas, cpf_cliente, dt_venc
 
-def extrair_nome(texto):
-    # Utilizar expressão regular para buscar padrão de nome
-    padrao_nome = r'[A-Z\s]+'
-    match = re.findall(padrao_nome, texto)
-
-    for nome in match:
-        print(nome.strip())
-
 def extrair_dados_documento(imagem):
     # Carregar a imagem do documento
     imagem_documento = cv2.imread(imagem)
@@ -66,10 +58,9 @@ def extrair_dados_documento(imagem):
     print(texto_extraido)
 
     datas, cpf_cliente, dt_venc = filtrar_data_cpf(texto_extraido)
-    nome = extrair_nome(texto_extraido)
 
     return {
-        'nome': nome if (nome is not None and len(nome) > 2) else '',
+        #'nome': nome if (nome is not None and len(nome) > 2) else '',
         'cpf': cpf_cliente,
         'nascimento': datas[0] if dt_venc == None else 'Carteira sem Data de Nascimento',
         'dtVencimentoCnh': datas[1] if dt_venc == None else dt_venc
