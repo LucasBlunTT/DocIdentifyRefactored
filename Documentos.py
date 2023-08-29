@@ -80,9 +80,8 @@ def extrair_dados_documento(imagem):
     }
 
 #path do caminho da imagem
-imagem_path = ".//images//cnh.jpg"
-#imagem_path = ".//images//cnh2.jpg"
-#imagem_path = ".//images//cnh3.jpeg"
+imagem_path = ".//images//cnh2.jpg"
+#imagem_path = ".//images//cnh2.jpeg"
 
 # Chamar a função para processar a imagem do documento
 dados_documento = extrair_dados_documento(imagem_path)
