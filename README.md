@@ -20,6 +20,17 @@ O projeto tem como objetivo criar uma aplicação web altamente funcional e segu
 - CSS3 / TAILWIND
 - PYTHON / FLASK
 
+## 🛠️ COMO INICIAR O FRONTEND
+- Clone este repositório em sua máquina local.
+- Certifique-se de ter instalado todas as dependências necessárias com yarn install ou npm install.
+- Execute o projeto com o comando yarn dev detro da pasta FRONTEND.
+- Acesse o projeto em seu navegador pelo endereço http://localhost:3000/
+
+## 🛠️ COMO INICIAR O BACKEND
+- Clone este repositório em sua máquina local.
+- Certifique-se de ter instalado todas as dependências necessárias com pip install -r requirements.txt
+- execute flask run o mesmo rodará na porta http://localhost:5000/
+
 ## 📈 Status do projeto
 
 🚧 Em construção
