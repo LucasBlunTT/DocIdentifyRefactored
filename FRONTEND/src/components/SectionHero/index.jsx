@@ -40,6 +40,7 @@ export default function SectionHero() {
       });
       if (response.ok) {
         console.log('Imagem enviada com sucesso');
+        handleLimparDados();
       }
     } catch (error) {
       setLoading(false);
