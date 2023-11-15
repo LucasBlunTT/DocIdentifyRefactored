@@ -15,6 +15,7 @@ def main():
 
     #mostrar dados do documento
     print(dados_documento)
+    return dados_documento
 
 if __name__ == "__main__":
     main()
