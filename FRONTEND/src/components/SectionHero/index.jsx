@@ -16,31 +16,20 @@ export default function SectionHero() {
   const [dataVencimento, setDataVencimento] = useState('');
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleLimparDados);
-
-    return () => {
-      window.removeEventListener('keydown', handleLimparDados);
-    };
-  }, []);
-
-  function handleLimparDados(event) {
-    event.key === 'Escape' && setDocumento(null);
-  }
-
   async function handlerEnviarImagem(event) {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('imagem', documento);
+    formData.append('image', documento[0]);
     try {
       setLoading(true);
-      const response = await fetch('URL_BACKEND', {
+      const response = await fetch('http://127.0.0.1:5000/upload', {
         method: 'POST',
         body: formData,
       });
+      const responseData = await response.json();
+      console.log(responseData);
       if (response.ok) {
-        console.log('Imagem enviada com sucesso');
-        handleLimparDados();
+        alert(responseData.mensagem);
       }
     } catch (error) {
       setLoading(false);
