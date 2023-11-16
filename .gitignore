@@ -1,3 +1,4 @@
 env
 venv_luan
 __pycache__
+BACKEND/api/__pycache__
