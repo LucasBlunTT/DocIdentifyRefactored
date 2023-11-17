@@ -22,16 +22,18 @@ export default function SectionHero() {
     formData.append('image', documento[0]);
     try {
       setLoading(true);
-      const URL = 'http://127.0.0.1:5000/upload'
+      const URL = 'http://127.0.0.1:5000/upload';
       const response = await fetch(URL, {
         method: 'POST',
         body: formData,
       });
-      console.log(response);
-      const responseData = await response.json();
-      console.log(responseData);
+
       if (response.ok) {
-        alert(responseData.mensagem);
+        const responseData = await response.json();
+        console.log(responseData);
+        const { nome, cpf, nascimento } = responseData;
+        setNome(nome);
+        setCpf(cpf);
       }
     } catch (error) {
       setLoading(false);
@@ -94,7 +96,7 @@ export default function SectionHero() {
               type="file"
               onChange={(event) => setDocumento(event.target.files)}
               className={'cursor-pointer'}
-              accept=".png, .jpg"
+              accept=".png, .jpg, .jpeg"
             />
           </div>
           {loading ? (
