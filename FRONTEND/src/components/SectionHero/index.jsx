@@ -22,10 +22,12 @@ export default function SectionHero() {
     formData.append('image', documento[0]);
     try {
       setLoading(true);
-      const response = await fetch('http://127.0.0.1:5000/upload', {
+      const URL = 'http://127.0.0.1:5000/upload'
+      const response = await fetch(URL, {
         method: 'POST',
         body: formData,
       });
+      console.log(response);
       const responseData = await response.json();
       console.log(responseData);
       if (response.ok) {

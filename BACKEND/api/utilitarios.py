@@ -37,6 +37,8 @@ def filtrar_data_cpf(texto):
     return datas, cpf_cliente, dt_venc
 
 def extrair_dados_documento(imagem):
+
+    caminho_tessaract = pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
     # Carregar a imagem do documento
     imagem_documento = cv2.imread(imagem)
 
