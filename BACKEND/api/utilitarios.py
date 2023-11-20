@@ -96,7 +96,7 @@ def extrair_dados_documento(imagem):
     datas, cpf_cliente, dt_venc = filtrar_data_cpf(texto_extraido)
 
     return {
-        'nome': nome_primeira_habilitacao[0].strip("|") if (nome_primeira_habilitacao is not None) else '',
+        'nome': nome_primeira_habilitacao[0].strip("|").strip() if (nome_primeira_habilitacao is not None) else '',
         'primeiraHabilitacao': nome_primeira_habilitacao[1] if (nome_primeira_habilitacao is not None) else '',
         'cpf': cpf_cliente,
         'nascimento': data_nascimento if (data_nascimento is not None) else 'Carteira sem Data de Nascimento',
