@@ -25,6 +25,7 @@ def upload():
         #Pega o nome do arquivo e salva na pasta configurada
         nome_arquivo = secure_filename(arquivo.filename)
         caminho_arquivo = os.path.join(app.config['UPLOADED_FOLDER'], nome_arquivo)
+        arquivo.save(caminho_arquivo)
         
         #Caminho para o arquivo
         dados_documento = main(caminho_arquivo).json
