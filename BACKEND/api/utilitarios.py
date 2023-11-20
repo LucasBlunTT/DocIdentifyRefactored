@@ -94,7 +94,7 @@ def extrair_dados_documento(imagem):
             break
 
     datas, cpf_cliente, dt_venc = filtrar_data_cpf(texto_extraido)
-    print(datas)
+    #print(datas)
 
     return {
         'nome': nome_primeira_habilitacao[0].strip("|").strip() if (nome_primeira_habilitacao is not None) else '',
