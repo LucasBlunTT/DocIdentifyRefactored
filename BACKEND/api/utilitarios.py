@@ -102,5 +102,5 @@ def extrair_dados_documento(imagem):
         'nascimento': data_nascimento if (data_nascimento is not None) else 'Carteira sem Data de Nascimento',
         'cidadeNascimento': cidade if (cidade is not None) else 'Cidade não encontrada',
         'estadoNascimento': estado if (estado is not None) else 'Estado não encontrado',
-        #'dtVencimentoCnh': datas[1] if dt_venc == None else dt_venc
+        'dtVencimentoCnh': datas[1] if dt_venc == None else dt_venc
     }

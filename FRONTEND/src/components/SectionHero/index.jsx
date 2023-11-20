@@ -31,9 +31,10 @@ export default function SectionHero() {
       if (response.ok) {
         const responseData = await response.json();
         console.log(responseData);
-        const { nome, cpf, nascimento } = responseData;
+        const { nome, cpf, nascimento, dtVencimentoCnh } = responseData;
         setNome(nome);
         setCpf(cpf);
+        setDataVencimento(dtVencimentoCnh);
       }
     } catch (error) {
       setLoading(false);
