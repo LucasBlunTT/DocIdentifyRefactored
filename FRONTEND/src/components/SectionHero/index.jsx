@@ -34,6 +34,7 @@ export default function SectionHero() {
         const { nome, cpf, nascimento, dtVencimentoCnh } = responseData;
         setNome(nome);
         setCpf(cpf);
+        setDataNascimento(nascimento);
         setDataVencimento(dtVencimentoCnh);
       }
     } catch (error) {
