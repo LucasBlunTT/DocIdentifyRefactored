@@ -88,7 +88,7 @@ def extrair_dados_documento(imagem):
         # A próxima linha deve conter o nome desejado
             indice_data = linhas.index(linha) + 1
             dados = linhas[indice_data].split(",")
-            #data_nascimento = str(dados[0]).replace("|", "")
+            data_nascimento = str(dados[0]).replace("|", "")
             cidade = str(dados[1]).replace("|", "")
             estado = str(dados[2]).replace("|", "")
             break
