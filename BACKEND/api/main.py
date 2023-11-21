@@ -8,7 +8,7 @@ def main(caminho):
 
     # Caminho da imagem
     #imagem_path = ".//BACKEND//data//images//cnh.jpg"  
-    #imagem_path = ".//BACKEND//data//images//cnh2.jpeg"
+    #caminho = ".//BACKEND//data//images//cnh2.jpeg"
 
     # Chamar a função para processar a imagem do documento
     dados_documento = extrair_dados_documento(caminho)
@@ -16,3 +16,6 @@ def main(caminho):
     #mostrar dados do documento
     
     return jsonify(dados_documento)
+
+if __name__ == '__main__':
+    main()
