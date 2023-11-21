@@ -7,7 +7,7 @@ def main(caminho):
     
 
     # Caminho da imagem
-    #imagem_path = ".//BACKEND//data//images//cnh.jpg"  
+    #caminho = ".//BACKEND//data//images//cnh.jpg"  
     #caminho = ".//BACKEND//data//images//cnh2.jpeg"
 
     # Chamar a função para processar a imagem do documento
