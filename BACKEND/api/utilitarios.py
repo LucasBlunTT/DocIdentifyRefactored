@@ -2,7 +2,6 @@ import cv2
 import re
 import pytesseract
 
-
 LINHAS_PROCURADAS = {
     "nome": "2 e 1 NOME E SOBRENOME",
     "nome1": "— NOME",
@@ -11,9 +10,9 @@ LINHAS_PROCURADAS = {
 }
 
 def caminho_tesseract():
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
-def carregar_configurar_imagem(imagem):
+def tratar_imagem(imagem):
     
     imagem_documento = cv2.imread(imagem)
 
@@ -29,7 +28,7 @@ def carregar_configurar_imagem(imagem):
 
 def extrair_texto_documento(imagem):  
 
-    umbral = carregar_configurar_imagem(imagem)
+    umbral = tratar_imagem(imagem)
     config = "--psm 4"
     texto_extraido = pytesseract.image_to_string(umbral, config=config, lang="por")
 
@@ -51,16 +50,15 @@ def buscar_nome_primeira_habilitacao(imagem):
 
     texto_extraido = extrair_texto_documento(imagem)
     linhas = texto_extraido.split('\n')
+    linhas = [linha for linha in linhas if linha]
 
     for linha in linhas:
 
         if (LINHAS_PROCURADAS["nome"]) in linha:
-        # A próxima linha deve conter o nome desejado
             indice = linhas.index(linha) + 1
             nome_e_primeira_habilitacao = linhas[indice].split('|')
             break
         elif LINHAS_PROCURADAS["nome1"] in linha:
-        # A próxima linha deve conter o nome desejado
             indice = linhas.index(linha) + 1
             nome_e_primeira_habilitacao = linhas[indice].split("| E")
             break
@@ -97,17 +95,12 @@ def extrair_dados_documento(caminho):
     #Carrega o caminho do tesseract
     caminho_tesseract()
     
-    # Realizar OCR na imagem para extrair texto
-    #texto_extraido = extrair_texto_documento(caminho)
-
     #A função buscar_nome_primeira_habilitacao irá retornar o nome e também as linhas,
     #Para que não tenhamos que passar o OCR novamente na imagem
     nome_e_primeira_habilitacao, linhas = buscar_nome_primeira_habilitacao(caminho)
 
     data_nascimento, estado, cidade = buscar_demais_dados(linhas)
 
-
-    #cpf_cliente = buscar_cpf(linhas)
     cpf_cliente = buscar_cpf(linhas)
 
     return {
