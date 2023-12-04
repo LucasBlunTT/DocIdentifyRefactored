@@ -107,7 +107,7 @@ def extrair_dados_documento(caminho):
         'nome': nome_e_primeira_habilitacao[0].strip("|") if (nome_e_primeira_habilitacao is not None) else '',
         'primeiraHabilitacao': nome_e_primeira_habilitacao[1] if (nome_e_primeira_habilitacao is not None) else '',
         'cpf': cpf_cliente[0],
-        'nascimento': data_nascimento if (data_nascimento is not None) else 'Carteira sem Data de Nascimento',
+        'nascimento': data_nascimento[0] if (data_nascimento is not None) else 'Carteira sem Data de Nascimento',
         'cidadeNascimento': cidade if (cidade is not None) else 'Cidade não encontrada',
         'estadoNascimento': estado if (estado is not None) else 'Estado não encontrado',
         #'dtVencimentoCnh': datas[1] if dt_venc == None else dt_venc
