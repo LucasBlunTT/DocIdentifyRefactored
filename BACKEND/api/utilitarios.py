@@ -88,6 +88,8 @@ def buscar_demais_dados(linhas):
             data_nascimento = re.findall(regex_data, dados[0])
             break
 
+    return data_nascimento, estado, cidade
+
 def extrair_dados_documento(caminho):
 
     #Carrega o caminho do tesseract
