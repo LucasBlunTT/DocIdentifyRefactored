@@ -33,4 +33,4 @@ O projeto tem como objetivo criar uma aplicação web altamente funcional e segu
 
 ## 📈 Status do projeto
 
-🚧 Em construção
+✅ Concluído
